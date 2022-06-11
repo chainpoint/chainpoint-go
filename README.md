@@ -1,8 +1,8 @@
 # Unofficial Chainpoint Client
 
-    import "github.com/boki/chainpoint"
+    import "github.com/chainpoint/chainpoint-go"
 
-Packages in `chainpoint` provide Go clients for the [Chainpoint Node API](https://github.com/chainpoint/chainpoint-node/wiki/Chainpoint-Node-API:-How-to-Create-a-Chainpoint-Proof).
+Packages in `chainpoint` provide Go clients for the [Chainpoint Gateway API](https://github.com/chainpoint/chainpoint-gateway/wiki/Gateway-HTTP-API).
 
 ## Usage
 
