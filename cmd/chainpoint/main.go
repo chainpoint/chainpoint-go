@@ -4,12 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
-	"github.com/boki/chainpoint"
 	"log"
 	"net/http"
 	"strings"
 
-	"github.com/chainpoint/chainpoint-go"
+	chainpoint "github.com/chainpoint/chainpoint-go"
 )
 
 func main() {
@@ -35,7 +34,7 @@ func main() {
 	}
 
 	if node == "" {
-		uris, err := svc.Nodes(1)
+		uris := []string{"18.224.185.143","3.133.135.157","18.191.50.129"}
 		if err != nil {
 			log.Printf("ERR: Could not retrieve Node URI: %v", err)
 			return
