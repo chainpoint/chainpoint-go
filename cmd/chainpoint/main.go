@@ -4,11 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
+	"github.com/boki/chainpoint"
 	"log"
 	"net/http"
 	"strings"
 
-	"github.com/boki/chainpoint"
+	"github.com/chainpoint/chainpoint-go"
 )
 
 func main() {

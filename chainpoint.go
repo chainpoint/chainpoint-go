@@ -3,7 +3,7 @@
 // A Chainpoint Node allows anyone to run a server that accepts hashes, anchors
 // them to public blockchains, creates and verifies proofs, and participates in
 // the Chainpoint Network.
-package chainpoint
+package chainpoint_go
 
 import (
 	"bytes"

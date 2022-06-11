@@ -1,4 +1,4 @@
-package chainpoint
+package chainpoint_go
 
 import (
 	"bytes"
@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 )
 
 const (
@@ -205,9 +205,9 @@ func (s *Service) Hashes(ctx context.Context, uri string, hashes []string) (*Pos
 		if err != nil {
 			return err
 		}
-		// Nodes cannot be guaranteed to know what IP address they are reachable
-		// at, so we need to amend each result with the Node URI it was submitted
-		// to so that proofs may later be retrieved from the appropriate Node(s).
+		// Gateways cannot be guaranteed to know what IP address they are reachable
+		// at, so we need to amend each result with the Gateway URI it was submitted
+		// to so that proofs may later be retrieved from the appropriate Gateway(s).
 		phr.URI = uri
 		return nil
 	}()

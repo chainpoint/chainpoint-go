@@ -1,4 +1,4 @@
-package chainpoint
+package chainpoint_go
 
 import (
 	"crypto/sha256"
