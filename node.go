@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/oklog/ulid/v2"
 	"io"
 	"io/ioutil"
 	"net"
@@ -16,7 +17,7 @@ import (
 	"sort"
 	"strings"
 	"time"
-
+	_ "github.com/oklog/ulid/v2"
 	uuid "github.com/satori/go.uuid"
 )
 
@@ -228,6 +229,19 @@ func validUUID(s string) bool {
 	return err == nil && u.Version() == 1
 }
 
+// validULID returns a value indicating whether the specified ulid is a
+// ULID.
+func validULID(s string) bool {
+	_, err := ulid.Parse(s)
+	return err == nil
+}
+
+//validId returns a value indicating whether the specified id is a
+//// valid chainpoint id
+func validId(s string) bool {
+	return validUUID(s) || validULID(s)
+}
+
 // Proofs retrieves a collection of proofs for one or more hash IDs from the
 // specified Node URI.
 func (s *Service) Proofs(ctx context.Context, nodeURI string, proofIDs []string, contentType ...string) ([]*Proof, error) {
@@ -239,7 +253,7 @@ func (s *Service) Proofs(ctx context.Context, nodeURI string, proofIDs []string,
 	}
 	rejects := []string{}
 	for _, h := range proofIDs {
-		if !validUUID(h) {
+		if !validId(h) {
 			rejects = append(rejects, h)
 		}
 	}

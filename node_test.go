@@ -135,7 +135,7 @@ func TestValidUUID(t *testing.T) {
 	}
 	for name, tc := range testCases {
 		t.Run(name, func(t *testing.T) {
-			if got, exp := validUUID(tc.uuid), tc.exp; got != exp {
+			if got, exp := validId(tc.uuid), tc.exp; got != exp {
 				t.Errorf("got %v; want %v", got, exp)
 			}
 		})
